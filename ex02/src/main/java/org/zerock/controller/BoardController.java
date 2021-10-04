@@ -16,7 +16,7 @@ import lombok.extern.log4j.Log4j;
 
 @Controller
 @Log4j
-@RequestMapping("/board/*")
+@RequestMapping("/*")
 public class BoardController {
 
 	@Setter(onMethod_ = @Autowired)
