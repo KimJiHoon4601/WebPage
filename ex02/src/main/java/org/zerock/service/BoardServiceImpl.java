@@ -8,7 +8,6 @@ import org.zerock.mapper.BoardMapper;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
-
 @Log4j
 @Service
 public class BoardServiceImpl implements BoardService{
@@ -16,12 +15,10 @@ public class BoardServiceImpl implements BoardService{
 	@Setter(onMethod_ = @Autowired)
 	private BoardMapper mapper;
 	
-	
 	@Override
 	public void register(BoardVO board) {
 		mapper.insertSelectKey(board);
 	}
-	
 	
 	@Override
 	public boolean modify(BoardVO board) {

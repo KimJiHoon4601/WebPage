@@ -24,6 +24,7 @@ public class BoardController {
 	
 	@GetMapping("/list")
 	public void list(Model model) {
+		System.out.println("Controller List »£√‚");
 		log.info("list");
 		model.addAttribute("list" , service.getList());
 	}
