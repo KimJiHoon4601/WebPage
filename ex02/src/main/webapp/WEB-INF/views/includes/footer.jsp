@@ -2,7 +2,7 @@
     pageEncoding="EUC-KR"%>
 
     
-    </div>
+   
     <!-- /#wrapper -->
 
     <!-- jQuery -->
