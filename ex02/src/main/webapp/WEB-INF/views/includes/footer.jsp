@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="EUC-KR"%>
 
     
@@ -6,7 +6,7 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="/resources/vendor/jquery/jquery.min.js"></script>
+    <!--  <script src="/resources/vendor/jquery/jquery.min.js"></script> -->
 
     <!-- Bootstrap Core JavaScript -->
     <script src="/resources/vendor/bootstrap/js/bootstrap.min.js"></script>
