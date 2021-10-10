@@ -92,6 +92,8 @@ $(document).ready(function() {
 	      
 	    }else if(operation === 'list'){
 	      self.location ="/board/list";
+	      //formObj.attr("action", "/board/list").attr("method","get");
+	      //formObj.empty();
 	      return;
 	    }
 	    
