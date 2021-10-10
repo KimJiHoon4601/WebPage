@@ -42,9 +42,13 @@
             <input class="form-control" name='writer' value ='<c:out value="${board.writer}"/>' readonly="readonly">
           </div>
           
-        <button id="KJHTest" data-oper='modify' class="btn btn-default">Modify</button>
-		<button data-oper='list' class="btn btn-info" onclick="location.href='/board/list'">List</button>
+        <button data-oper='modify' class="btn btn-default">Modify</button>
+		<button data-oper='list'   class="btn btn-info"   >List</button>
 
+		<form id='operForm' action="/boad/modify" method="get">
+  			<input type='hidden' id='bno' name='bno' value='<c:out value="${board.bno}"/>'>
+      	</form>
+      	
       </div>
       <!--  end panel-body -->
 
@@ -53,14 +57,24 @@
   </div>
   <!-- end panel -->
 </div>
- 			<script type="text/javascript">
-			$(document).ready( function() {
-				
-				//등록버튼 눌렀을 경우
-				$("#KJHTest").on("click", function() {
-					self.location = "/board/register";
-				});
-			});
-			</script>
+		<script type="text/javascript">
+		$(document).ready( function() {
+			var operForm = $("#operForm"); 
+			  
+			  $("button[data-oper='modify']").on("click", function(e){
+			    
+			    operForm.attr("action","/board/modify").submit();
+			    
+			  });
+			  
+			  $("button[data-oper='list']").on("click", function(e){
+			    
+			    operForm.find("#bno").remove();
+			    operForm.attr("action","/board/list")
+			    operForm.submit();
+			    
+			  });  
+		});
+	</script>
 <!-- /.row -->
 <%@include file="../includes/footer.jsp"%>
