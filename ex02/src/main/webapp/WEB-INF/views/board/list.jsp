@@ -25,7 +25,7 @@
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                    	<th>#번호</th>
+                                    	<th>#번111호</th>
                                     	<th>제목</th>
                                     	<th>작성자</th>
                                     	<th>작성일</th>
@@ -47,6 +47,37 @@
                            			</tr>
                            		</c:forEach>
                            	</table>
+                           	
+                           	
+                           	
+				                 <div class='pull-right'>
+									<ul class="pagination">
+				
+										<c:if test="${pageMaker.prev}">
+											<li class="paginate_button previous">
+											<a href="#">Previous</a></li>
+										</c:if>
+				
+										<c:forEach var="num" begin="${pageMaker.startPage}"
+											end="${pageMaker.endPage}">
+											<li class="paginate_button">
+												<a href="${num}">${num}</a>
+											</li>
+										</c:forEach>
+				
+										<c:if test="${pageMaker.next}">
+											<li class="paginate_button next">
+											<a href="#">Next</a></li>
+										</c:if>
+				
+				
+									</ul>
+								</div>
+								<!--  end Pagination -->
+							</div>
+				                           	
+                           	
+                           	
                            	
                            	
                            	<!-- Modal  추가 -->
