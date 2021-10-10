@@ -2,6 +2,7 @@
   pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <%@include file="../includes/header.jsp"%>
 
 
@@ -33,7 +34,7 @@
 
           <div class="form-group">
             <label>Text area</label>
-            <textarea class="form-control" rows="3" name='content'><c:out value="${board.content}"/></textarea>
+            <textarea class="form-control" rows="3" name='content' readonly="readonly"><c:out value="${board.content}"/></textarea>
           </div>
 
           <div class="form-group">
@@ -41,8 +42,8 @@
             <input class="form-control" name='writer' value ='<c:out value="${board.writer}"/>' readonly="readonly">
           </div>
           
-        <button data-oper='modify' class="btn btn-default">Modify</button>
-		<button data-oper='list' class="btn btn-info">List</button>
+        <button id="KJHTest" data-oper='modify' class="btn btn-default">Modify</button>
+		<button data-oper='list' class="btn btn-info" onclick="location.href='/board/list'">List</button>
 
       </div>
       <!--  end panel-body -->
@@ -52,5 +53,14 @@
   </div>
   <!-- end panel -->
 </div>
+ 			<script type="text/javascript">
+			$(document).ready( function() {
+				
+				//등록버튼 눌렀을 경우
+				$("#KJHTest").on("click", function() {
+					self.location = "/board/register";
+				});
+			});
+			</script>
 <!-- /.row -->
 <%@include file="../includes/footer.jsp"%>
