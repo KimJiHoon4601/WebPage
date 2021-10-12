@@ -30,7 +30,11 @@ public class BoardController {
 		System.out.println("Controller List »£√‚");
 		log.info("list");
 		model.addAttribute("list" , service.getList(cri));
-		model.addAttribute("pageMaker", new PageDTO(cri, 23));
+		//model.addAttribute("pageMaker", new PageDTO(cri, 23));
+		
+		int total = service.getTotal(cri);
+		
+		model.addAttribute("pageMaker" , new PageDTO(cri, total));
 	}
 	
 	
@@ -57,21 +61,29 @@ public class BoardController {
 	  
 
 	@PostMapping("/modify")
-	public String modify(BoardVO board , RedirectAttributes rttr) {
+	public String modify(BoardVO board , @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
 
+		log.info("==================modify:" + board);
+		
 		if(service.modify(board)) {
 			rttr.addFlashAttribute("result", "success");
 		}
+		
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
 		
 		return "redirect:/board/list";
 	}
 	
 	@PostMapping("/remove")
-	public String remove(@RequestParam("bno") Long bno , RedirectAttributes rttr) {
+	public String remove(@RequestParam("bno") Long bno ,  @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
 
 		if(service.remove(bno)) {
 			rttr.addFlashAttribute("result", "success");
 		}
+		
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
 		
 		return "redirect:/board/list";
 	}
