@@ -37,10 +37,19 @@
 	                           		<tr>
                            				<td><c:out value="${board.bno}" /></td>
                            				<td>
+                           					<!--  
                            					<a href='/board/get?bno=<c:out value="${board.bno}" />'>
                            				    	<c:out value="${board.title}" />
                            				    </a>
+                           				    -->
+                           				    
+                           				    <a class='move' href='<c:out value="${board.bno}"/>'>
+												<c:out value="${board.title}" />
+											</a>
+											
                            				 </td>
+                           				 
+                           				
                            				<td><c:out value="${board.writer}" /></td>
                            				<td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.regdate}" /></td>
                            				<td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.updateDate}" /></td>
@@ -60,7 +69,7 @@
 				
 										<c:forEach var="num" begin="${pageMaker.startPage}"
 										                       end="${pageMaker.endPage}">
-											<li class="paginate_button">
+											<li class="paginate_button  ${pageMaker.cri.pageNum == num ? "active":""} ">
 												<a href="${num}">
 													${num}
 												</a>
@@ -155,6 +164,16 @@
 					actionForm.submit();
 				});
 
+				
+				
+				$(".move").on("click", function(e) {
+					e.preventDefault();
+					actionForm.append("<input type='hidden' name='bno' value='"+ $(this).attr("href")+ "'>");
+					actionForm.attr("action","/board/get");
+					actionForm.submit();
+	
+				});
+				
 				
 				
 			});
