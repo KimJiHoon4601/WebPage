@@ -59,9 +59,11 @@
 										</c:if>
 				
 										<c:forEach var="num" begin="${pageMaker.startPage}"
-											end="${pageMaker.endPage}">
+										                       end="${pageMaker.endPage}">
 											<li class="paginate_button">
-												<a href="${num}">${num}</a>
+												<a href="${num}">
+													${num}
+												</a>
 											</li>
 										</c:forEach>
 				
@@ -77,7 +79,10 @@
 							</div>
 				                           	
                            	
-                           	
+                            <form id='actionForm' action="/board/list" method='get'>
+								<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+								<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+                           	</form>
                            	
                            	
                            	<!-- Modal  추가 -->
@@ -137,6 +142,21 @@
 				$("#regBtn").on("click", function() {
 					self.location = "/board/register";
 				});
+				
+				
+				
+				var actionForm = $("#actionForm");
+
+				$(".paginate_button a").on("click", function(e) {
+					e.preventDefault();
+					console.log('click');
+					//$("#actionForm").find("input[name='pageNum']").val($(this).attr("href"));
+					$("input[name='pageNum']").val($(this).attr("href"));
+					actionForm.submit();
+				});
+
+				
+				
 			});
 			</script>
 			
