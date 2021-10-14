@@ -31,6 +31,7 @@ public class BoardController {
 	public void list(Criteria cri, Model model) {
 		System.out.println("Controller List »£√‚");
 		log.info("list");
+		log.info("===============pageNum  :" + cri.getPageNum());
 		model.addAttribute("list" , service.getList(cri));
 		//model.addAttribute("pageMaker", new PageDTO(cri, 23));
 		

@@ -9,8 +9,14 @@ import lombok.ToString;
 @ToString
 public class Criteria {
 	
+	//페이징 처리를 위한 변수
 	private int pageNum;
 	private int amount;
+	
+	
+	//입력값을 위한 변수
+	private String type;
+	private String keyword;
 	
 	public Criteria() {
 		this(1,10);
