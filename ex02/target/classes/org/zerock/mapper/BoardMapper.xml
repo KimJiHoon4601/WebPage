@@ -20,10 +20,47 @@
 				       rownum rn, bno, title, content, writer, regdate, updatedate 
 				  from tbl_board 
 				 where rownum <= #{pageNum} * #{amount}
+				   and #{type} = 'T' 
 				   and TITLE like '%'||#{keyword}||'%'   
-				   
 				) 
-		  where rn > (#{pageNum} -1) * #{amount} ]]> 
+		  where rn > (#{pageNum} -1) * #{amount} 
+		  
+		 UNION ALL
+		 select bno, title, content, writer, regdate, updatedate 
+		  from ( 
+				select /*+INDEX_DESC(tbl_board pk_board) */ 
+				       rownum rn, bno, title, content, writer, regdate, updatedate 
+				  from tbl_board 
+				 where rownum <= #{pageNum} * #{amount}
+				   and #{type} = 'C' 
+				   and CONTENT like '%'||#{keyword}||'%'   
+				) 
+		  where rn > (#{pageNum} -1) * #{amount} 
+		  
+		  UNION ALL
+		  select bno, title, content, writer, regdate, updatedate 
+		  from ( 
+				select /*+INDEX_DESC(tbl_board pk_board) */ 
+				       rownum rn, bno, title, content, writer, regdate, updatedate 
+				  from tbl_board 
+				 where rownum <= #{pageNum} * #{amount}
+				   and #{type} = 'W' 
+				   and WRITER like '%'||#{keyword}||'%'   
+				) 
+		  where rn > (#{pageNum} -1) * #{amount} 
+		  
+		  UNION ALL
+		  select bno, title, content, writer, regdate, updatedate 
+		  from ( 
+				select /*+INDEX_DESC(tbl_board pk_board) */ 
+				       rownum rn, bno, title, content, writer, regdate, updatedate 
+				  from tbl_board 
+				 where rownum <= #{pageNum} * #{amount}
+				   and #{type} = 'ALL' 
+				) 
+		  where rn > (#{pageNum} -1) * #{amount} 
+		 
+		 ]]> 
     </select> 
 
 

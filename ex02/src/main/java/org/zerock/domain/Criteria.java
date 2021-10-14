@@ -19,12 +19,14 @@ public class Criteria {
 	private String keyword;
 	
 	public Criteria() {
-		this(1,10);
+		this(1,10,"ALL","");
 		System.out.println("생성자호출==============");
 	}
 	
-	public Criteria(int pageNum , int amount) {
+	public Criteria(int pageNum , int amount, String type, String keyword) {
 		this.pageNum = pageNum;
 		this.amount  = amount;
+		this.type 	 = type;
+		this.keyword = keyword;
 	}
 }
