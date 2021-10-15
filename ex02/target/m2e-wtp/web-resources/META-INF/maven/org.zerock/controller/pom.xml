@@ -5,7 +5,7 @@
 	<groupId>org.zerock</groupId>
 	<artifactId>controller</artifactId>
 	<name>ex02</name>
-	<packaging>war</packaging>  
+	<packaging>war</packaging>     
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>  
 		<java-version>1.8</java-version>
