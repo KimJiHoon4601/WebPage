@@ -76,7 +76,7 @@ public class BoardController {
 		rttr.addAttribute("amount", cri.getAmount());
 		
 		return "redirect:/board/list";
-	}
+	}  
 	
 	@PostMapping("/remove")
 	public String remove(@RequestParam("bno") Long bno ,  @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
