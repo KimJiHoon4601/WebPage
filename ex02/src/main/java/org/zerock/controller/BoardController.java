@@ -89,6 +89,6 @@ public class BoardController {
 		rttr.addAttribute("amount", cri.getAmount());
 		
 		return "redirect:/board/list";
-	}
+	}  
 	
 }
