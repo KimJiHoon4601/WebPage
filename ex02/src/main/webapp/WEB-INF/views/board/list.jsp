@@ -121,7 +121,7 @@
 								<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
 								<input type='hidden' name='amount'  value='${pageMaker.cri.amount}'>
 								<input type='hidden' name='type'    value='<c:out value="${ pageMaker.cri.type }"/>'> 
-								<input type='hidden' name='keyword' value='<c:out value="${ pageMaker.cri.keyword }"/>'>
+							  	<input type='hidden' name='keyword' value='<c:out value="${ pageMaker.cri.keyword }"/>'> 
                            	</form>
                            	
                            	
@@ -159,7 +159,10 @@
             <script type="text/javascript">
 			$(document).ready( function() {
 				var result = '<c:out value="${result}"/>';
-			
+				
+				//alert(keyword);
+				// console.log(keword);
+				
 				checkModal(result);
 			
 				history.replaceState({},null,null);	

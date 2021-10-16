@@ -31,7 +31,8 @@ public class BoardController {
 	public void list(Criteria cri, Model model) {
 		System.out.println("Controller List »£√‚");
 		log.info("list");
-		log.info("===============pageNum  :" + cri.getPageNum());
+		log.info("===============pageNum      :" + cri.getPageNum());
+		log.info("===============pageKeyword  :" + cri.getKeyword());
 		model.addAttribute("list" , service.getList(cri));
 		//model.addAttribute("pageMaker", new PageDTO(cri, 23));
 		
@@ -84,7 +85,7 @@ public class BoardController {
 		if(service.remove(bno)) {
 			rttr.addFlashAttribute("result", "success");
 		}
-		
+		  
 		rttr.addAttribute("pageNum", cri.getPageNum());
 		rttr.addAttribute("amount", cri.getAmount());
 		
