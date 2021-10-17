@@ -96,7 +96,7 @@ $(document).ready(function() {
 	    
 	    if(operation === 'remove'){
 	      formObj.attr("action", "/board/remove");
-	      
+	        
 	    }else if(operation === 'list'){
 	      
 	      formObj.attr("action", "/board/list").attr("method","get");
