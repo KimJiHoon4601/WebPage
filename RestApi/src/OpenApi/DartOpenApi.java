@@ -7,8 +7,15 @@ public class DartOpenApi {
 	
 	private String apiKey ;
 	private String strUtl ;
+	private String corpCode ;
 	
 	
+	public String getCorpCode() {
+		return corpCode;
+	}
+	public void setCorpCode(String corpCode) {
+		this.corpCode = corpCode;
+	}
 	public String getApiKey() {
 		return apiKey;
 	}
