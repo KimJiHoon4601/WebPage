@@ -7,8 +7,8 @@ public class Hello {
 		System.out.println("Hello, Java");
 		
 		//변수 초기화 오류
-		int value;
-		int result = valye + 10;
+		int value = 30;
+		int result = value + 10;
 		System.out.println(result);
 	}
 
