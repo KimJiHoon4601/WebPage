@@ -14,8 +14,9 @@ public class basicType {
 		String s = "나는 \"자바\"를 매우 좋아한다";
 		System.out.println(s);     //나는 "자바"를 매우 좋아한다
 
-		float f= 3.14;
+		//float f= 3.14; //에러발생
 		float f2 = 3.14F;
+		
 		
 	}
 }
