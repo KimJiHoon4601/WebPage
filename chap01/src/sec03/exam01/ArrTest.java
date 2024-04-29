@@ -20,6 +20,7 @@ public class ArrTest {
 			System.out.println(i);
 
 			System.out.println(i);
+			System.out.println(i);
 		}
 	}
 
