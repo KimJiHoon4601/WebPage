@@ -17,6 +17,7 @@ public class ArrTest {
 		for(int i : arr2) {
 			System.out.println(i);
 			System.out.println(i);
+			System.out.println(i);
 		}
 	}
 
